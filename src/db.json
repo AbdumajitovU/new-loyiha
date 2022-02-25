@@ -77,19 +77,6 @@
       "club": {
         "name": "FC Tottenham Hotspur"
       }
-    },
-    {
-      "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpADTFBR0kR0E3w5KrkkPQ-YjbaxQNNMu9vw&usqp=CAU",
-      "title": "Bunyodkor Stadium",
-      "capacity": "34000",
-      "location": "Chilanzar",
-      "opened": "23 01 2013",
-      "price": "90000000",
-      "rating": "4",
-      "club": {
-        "name": "Bunyodkor FC"
-      },
-      "id": 7
     }
   ]
 }

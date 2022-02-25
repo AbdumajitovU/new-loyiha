@@ -9,7 +9,7 @@ function MyInput({ labelText, myValue, mySetValueChange, type}) {
 
   return (
     <div>
-      <label className="text-xl" htmlFor="inputFor">
+      <label className="text-xl text-indigo-500" htmlFor="inputFor">
         {labelText}:
       </label>
       <input

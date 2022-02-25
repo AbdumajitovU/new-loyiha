@@ -8,6 +8,7 @@ import Layout from "../components/Layout";
 function StadiumDetail() {
   let params = useParams();
   const [data, setData] = useState(null);
+  const [del, setDel] = useState(false);
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -35,7 +36,7 @@ function StadiumDetail() {
 
   return (
     <Layout>
-      <div className=" max-w-5xl mx-auto">
+      <div className=" max-w-5xl mx-auto relative">
         {data && (
           <div className="container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
             <div className="w-full lg:w-1/2">
@@ -90,9 +91,24 @@ function StadiumDetail() {
                   </button>
                 </form>
               </div>
-              <button onClick={onDelete} className="my-6 px-4 py-2 bg-red-100 text-red-500 border-2 border-red-500 rounded font-semibold">Delete</button>
+              <button onClick={()=>{setDel(true)}}  className="my-6 px-4 py-2 bg-red-100 text-red-500 border-2 border-red-500 rounded font-semibold">Delete</button>
+            
+            {del && 
+            
+            <div className="max-w-sm md:max-w-xl fixed top-48 left-7 md:fixed md:top-1/3 md:left-1/3 flex flex-col justify-center items-center py-20 px-20  bg-white rounded-lg shadow-xl border-2 border-blue-700 dark:bg-gray-800 dark:border-gray-700">
+              <div className="flex flex-col items-center pb-10">
+                 <h3 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Siz haqiqatdan ham ochirmoqchimisiz</h3>
+                 <div className="flex mt-4 space-x-6 lg:mt-6">
+                   <button onClick={onDelete}  className="inline-flex items-center py-2 px-8 text-md font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ha</button>
+                   <button onClick={()=>{setDel(false)}} className="inline-flex items-center py-2 px-8 text-md font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800">Yo'q</button>
+               </div>
+             </div>
+          </div>
+            }
+            
             </div>
 
+    
             <div className="flex items-center justify-center w-full h-96 lg:w-1/2">
               <img
                 className="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl"
