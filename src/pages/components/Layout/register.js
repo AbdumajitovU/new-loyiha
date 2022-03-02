@@ -4,7 +4,7 @@ import Register from "../RegLayout";
 function Login() {
     const[isLog, setIsLog] = useState(true)
     return ( 
-        <div className="flex flex-col gap-2 justify-center items-center min-h-screen  w-full bg-blue-600">
+        <div className="flex flex-col gap-2 justify-center items-center min-h-screen  w-full bg-gradient-to-r from-cyan-400 to-blue-500">
         <div className="flex justify-between  w-48">
            
         </div>

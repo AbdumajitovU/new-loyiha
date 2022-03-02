@@ -1,9 +1,10 @@
-import { Routes, Route, useParams, useNavigate } from "react-router-dom";
+import { Routes, Route, useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { tickIcon } from "../../utils/icons";
 import Rate from "rc-rate";
 import Layout from "../components/Layout";
+import { MutatingDots } from "react-loader-spinner";
 
 function StadiumDetail() {
   let params = useParams();
@@ -12,14 +13,16 @@ function StadiumDetail() {
   let navigate = useNavigate();
 
   useEffect(() => {
+   setTimeout(()=>{
     axios
-      .get(`http://localhost:3000/products/${params.banana}`)
-      .then(function (response) {
-        setData(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    .get(`http://localhost:3000/products/${params.banana}`)
+    .then(function (response) {
+      setData(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+   },2000)
   }, []);
 
   const onDelete = () => {
@@ -35,6 +38,8 @@ function StadiumDetail() {
 
 
   return (
+    <>
+    {data ? 
     <Layout>
       <div className=" max-w-5xl mx-auto relative">
         {data && (
@@ -91,16 +96,20 @@ function StadiumDetail() {
                   </button>
                 </form>
               </div>
-              <button onClick={()=>{setDel(true)}}  className="my-6 px-4 py-2 bg-red-100 text-red-500 border-2 border-red-500 rounded font-semibold">Delete</button>
+              <div className="flex space-x-6"> 
+                <Link to={`/stadium/update/${params.banana}`} className="my-6 px-4 py-2 bg-red-100 text-amber-500 border-2 border-amber-500 rounded font-semibold">Update</Link>
+                <button onClick={()=>{setDel(true)}}  className="my-6 px-4 py-2 bg-red-100 text-red-500 border-2 border-red-500 rounded font-semibold">Delete</button>
+              </div>
             
             {del && 
-            
+            <div className="absolute inset-0 bg-opacity-30 bg-blue-100">
             <div className="max-w-sm md:max-w-xl fixed top-48 left-7 md:fixed md:top-1/3 md:left-1/3 flex flex-col justify-center items-center py-20 px-20  bg-white rounded-lg shadow-xl border-2 border-blue-700 dark:bg-gray-800 dark:border-gray-700">
               <div className="flex flex-col items-center pb-10">
                  <h3 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Siz haqiqatdan ham ochirmoqchimisiz</h3>
                  <div className="flex mt-4 space-x-6 lg:mt-6">
                    <button onClick={onDelete}  className="inline-flex items-center py-2 px-8 text-md font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ha</button>
                    <button onClick={()=>{setDel(false)}} className="inline-flex items-center py-2 px-8 text-md font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800">Yo'q</button>
+               </div>
                </div>
              </div>
           </div>
@@ -120,6 +129,15 @@ function StadiumDetail() {
         )}
       </div>
     </Layout>
+    :
+     <div className="flex h-screen justify-center items-center">
+     <MutatingDots
+     heigth="100"
+     width="100"
+     color='red'
+     ariaLabel='loading'/>
+   </div>}
+   </>
   );
 }
 

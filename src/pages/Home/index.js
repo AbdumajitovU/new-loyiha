@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { BallTriangle, MutatingDots } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import ProductCard from "../components/productCard";
@@ -8,7 +9,8 @@ function Homepage() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios
+    setTimeout(()=>{
+      axios
       .get("http://localhost:3000/products")
       .then(function (response) {
         setData(response.data);
@@ -16,10 +18,14 @@ function Homepage() {
       .catch(function (error) {
         console.log(error);
       });
+    },2000)
+  
   }, []);
 
   return (
-    <Layout>
+    <>
+    {data.length > 0 ? 
+      <Layout>
       <div className="flex justify-between my-8">
         <h1 className="text-xl md:text-4xl text-indigo-700">Stadionlar</h1>
         <Link
@@ -33,16 +39,23 @@ function Homepage() {
         {data.map((stadion) => {
           return (
             <ProductCard
-              title={stadion.title}
-              image={stadion.imageURL}
-              price={stadion.price}
-              rating={stadion.rating}
-              id={stadion.id}
+              key={stadion.id}
+              stadion={stadion}
             />
           );
         })}
       </div>
-    </Layout>
+      </Layout> 
+      :
+      <div className="flex h-screen justify-center items-center">
+     <MutatingDots
+     heigth="100"
+     width="100"
+     color='red'
+     ariaLabel='loading'/>
+      </div>
+  }
+    </>
   );
 }
 

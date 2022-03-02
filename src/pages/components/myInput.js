@@ -12,12 +12,12 @@ function MyInput({ labelText, myValue, mySetValueChange, type}) {
       <label className="text-xl text-indigo-500" htmlFor="inputFor">
         {labelText}:
       </label>
-      <input
+      <input 
         onChange={onInpValueChange}
         value={myValue}
         type={type}
         id="inputFor"
-        className="form-input w-full border-2 rounded p-2 focus:border-blue-500" 
+        className="form-input w-full border-2 rounded p-2 text-indigo-500 focus:border-blue-500" 
       />
     </div>
   );

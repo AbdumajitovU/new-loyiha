@@ -10,9 +10,14 @@ import {
 import Login from "./pages/components/Layout/register";
 import StadiumDetail from "./pages/StadiumDetail"
 import StadiumCreate from "./pages/StadiumCreate"
+import StadiumUpdate from "./pages/StadiumUpdate";
+import CartPage from "./pages/Cart";
+import ProductProvider from "./utils/productContext";
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App() {
   return (
+    <ProductProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -20,8 +25,11 @@ function App() {
         <Route path="/register" element={<Login/>} />
         <Route path="/stadium/:banana" element={<StadiumDetail />} />
         <Route path="/stadium/create" element={<StadiumCreate />} />
+        <Route path="/stadium/update/:banana" element={<StadiumUpdate />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
     </BrowserRouter>
+    </ProductProvider>
     );
 }
 

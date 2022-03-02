@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { closeIcon, hamburgerIcon } from "../../../utils/icons";
+import { cart, closeIcon, hamburgerIcon, user } from "../../../utils/icons";
+import { ProductContext } from "../../../utils/productContext";
 import CustomLink from "./customLink";
 
 const Header = () => {
@@ -63,20 +64,21 @@ function Navigations() {
 }
 
 function RightActions() {
+  const {cartStadions} = useContext(ProductContext);
     return ( 
         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           <span className="sr-only">View notifications</span>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
+          <span class="relative inline-block">
+          <Link to={"/cart"}>{cart}</Link>
+      <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">{cartStadions.length}</span>
+      </span>
+        
 
         <div className="ml-3 relative">
           <div>
             <Link to={"/register"}>
               <span className="sr-only">Open user menu</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
+              {user}
             </Link>
           </div>
            
