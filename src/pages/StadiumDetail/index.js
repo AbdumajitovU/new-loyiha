@@ -102,13 +102,13 @@ function StadiumDetail() {
               </div>
             
             {del && 
-            <div className="absolute inset-0 bg-opacity-30 bg-blue-100">
-            <div className="max-w-sm md:max-w-xl fixed top-48 left-7 md:fixed md:top-1/3 md:left-1/3 flex flex-col justify-center items-center py-20 px-20  bg-white rounded-lg shadow-xl border-2 border-blue-700 dark:bg-gray-800 dark:border-gray-700">
+            <div className="absolute inset-0 bg-opacity-50 bg-gray-300">
+            <div className="max-w-sm md:max-w-lg fixed top-40 left-7 md:fixed md:top-1/4 md:left-1/3 flex flex-col justify-center items-center py-10 px-20  bg-white rounded-lg shadow-xl border-2 border-red-700 dark:bg-gray-800 dark:border-gray-700">
               <div className="flex flex-col items-center pb-10">
-                 <h3 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Siz haqiqatdan ham ochirmoqchimisiz</h3>
-                 <div className="flex mt-4 space-x-6 lg:mt-6">
-                   <button onClick={onDelete}  className="inline-flex items-center py-2 px-8 text-md font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ha</button>
-                   <button onClick={()=>{setDel(false)}} className="inline-flex items-center py-2 px-8 text-md font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800">Yo'q</button>
+              <svg class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <h3 class="mb-5 text-lg text-center font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>                 <div className="flex mt-4 space-x-6 lg:mt-6">
+                   <button onClick={onDelete} data-modal-toggle="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">Yes, I'm sure</button>
+                   <button onClick={()=>{setDel(false)}} data-modal-toggle="popup-modal" type="button" class="text-gray-500 border-2 border-indigo-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">No, cancel</button>
                </div>
                </div>
              </div>
@@ -142,3 +142,8 @@ function StadiumDetail() {
 }
 
 export default StadiumDetail;
+
+
+
+
+

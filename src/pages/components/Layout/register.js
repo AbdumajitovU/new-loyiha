@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Register from "../RegLayout";
 
 function Login() {
     const[isLog, setIsLog] = useState(true)
     return ( 
+        
         <div className="flex flex-col gap-2 justify-center items-center min-h-screen  w-full bg-gradient-to-r from-cyan-400 to-blue-500">
+        <Link to={"/"} className="text-white font-medium rounded-lg text-lg px-5 py-2.5 text-center border border-white ">Home</Link>
         <div className="flex justify-between  w-48">
            
         </div>

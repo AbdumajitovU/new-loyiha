@@ -13,6 +13,8 @@ import StadiumCreate from "./pages/StadiumCreate"
 import StadiumUpdate from "./pages/StadiumUpdate";
 import CartPage from "./pages/Cart";
 import ProductProvider from "./utils/productContext";
+import TeamPage from "./pages/teamPage";
+import ProjectPage from "./pages/project";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
         <Route path="/stadium/create" element={<StadiumCreate />} />
         <Route path="/stadium/update/:banana" element={<StadiumUpdate />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/team" element={<TeamPage />} />
+        <Route path="/projects" element={<ProjectPage />} />
       </Routes>
     </BrowserRouter>
     </ProductProvider>

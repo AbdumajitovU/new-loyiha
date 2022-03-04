@@ -17,7 +17,7 @@ function ProductCard({ stadion }) {
   }
   return (
     
-      <div className="max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 border-2 border-indigo-200">
         <div className="p-4">
         <Link to={`/stadium/${stadion.id}`}>
           <img
