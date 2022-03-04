@@ -27,7 +27,7 @@ function Homepage() {
     {data.length > 0 ? 
       <Layout>
       <div className="flex justify-between px-8 md:px-0 sm:px-4 my-8">
-        <h1 className="text-xl md:text-4xl text-indigo-700">Stadionlar</h1>
+        <h1 className="text-xl md:text-4xl text-indigo-700">Premium Stadiums</h1>
         <Link
           className="text-white bg-indigo-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           to={"/stadium/create"}
